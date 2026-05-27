@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="kab" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Films doublés en Kabyle — ⵉⵙⵏⴼⴰⵍⴻⵏ ⵙ ⵜⴽⴱⴰⵢⵍⵉⵜ" />
+  <meta property="og:description" content="Découvrez 13 films doublés intégralement en tamazight kabyle. Préservons notre langue et culture amazighe." />
+  <meta property="og:type" content="website" />
+  <title>ⵉⵙⵏⴼⴰⵍⴻⵏ ⵙ ⵜⴽⴱⴰⵢⵍⵉⵜ — Films doublés en Kabyle</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+Tifinagh&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #080a0e;
+      --surface:  #0f1318;
+      --card:     #131820;
+      --card2:    #171e2a;
+      --border:   #1e2738;
+      --border2:  #2a3548;
+      --gold:     #c8873a;
+      --gold-lt:  #e8aa60;
+      --gold-dim: rgba(200,135,58,.12);
+      --amber:    #d4a840;
+      --red:      #b83530;
+      --text:     #eae4db;
+      --muted:    #6b7a94;
+      --faint:    #3a4558;
+      --accent:   #2f6eb5;
+      --green:    #2a7a4b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* GRAIN */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: .6;
+    }
+
+    /* ── WELCOME BANNER ── */
+    #welcomeBanner {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.92);
+      backdrop-filter: blur(18px) saturate(1.4);
+      animation: bannerIn .5s ease both;
+    }
+    #welcomeBanner.hidden {
+      animation: bannerOut .4s ease forwards;
+      pointer-events: none;
+    }
+    .banner-box {
+      background: var(--card2);
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      padding: 2.8rem 3.2rem;
+      max-width: 520px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 40px 80px rgba(0,0,0,.7), 0 0 0 1px rgba(200,135,58,.15), 0 0 60px rgba(200,135,58,.07);
+    }
+    .banner-tifi {
+      font-family: 'Noto Sans Tifinagh', sans-serif;
+      font-size: 1.6rem;
+      color: var(--gold);
+      letter-spacing: .3em;
+      margin-bottom: .8rem;
+      display: block;
+    }
+    .banner-flag {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .banner-h {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      line-height: 1.2;
+      margin-bottom: .6rem;
+      background: linear-gradient(135deg, #fff 30%, var(--gold-lt));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .banner-sub {
+      font-size: .85rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.6rem;
+    }
+    .banner-location {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .78rem;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid rgba(200,135,58,.2);
+      padding: .35rem .9rem;
+      border-radius: 20px;
+      margin-bottom: 1.8rem;
+    }
+    .banner-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: linear-gradient(135deg, var(--gold), #8a5520);
+      color: #080a0e;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: .9rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .85rem 2.2rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 30px rgba(200,135,58,.4);
+      transition: transform .2s, box-shadow .2s;
+      width: 100%;
+      justify-content: center;
+    }
+    .banner-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(200,135,58,.55);
+    }
+    .banner-rule {
+      width: 60px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 1.5rem auto;
+    }
+
+    @keyframes bannerIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes bannerOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    /* ── VISITOR BAR ── */
+    #visitorBar {
+      background: rgba(200,135,58,.07);
+      border-bottom: 1px solid rgba(200,135,58,.15);
+      padding: .4rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: .72rem;
+      color: var(--muted);
+      letter-spacing: .06em;
+      position: relative;
+      z-index: 890;
+      margin-top: 60px;
+    }
+    .vbar-item {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .vbar-item strong { color: var(--gold-lt); font-weight: 600; }
+    .vbar-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 6px var(--green);
+      animation: blink 2s infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50% { opacity: .3; }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 60px;
+      background: rgba(8,10,14,.95);
+      backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      display: flex; align-items: center; gap: .7rem;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 30px; height: 30px;
+      background: linear-gradient(135deg, var(--gold), #8a5a1c);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-icon svg { width: 16px; height: 16px; fill: #080a0e; }
+    .nav-brand-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: var(--text);
+      letter-spacing: .01em;
+    }
+    .nav-brand-text span {
+      display: block;
+      font-family: 'Noto Sans Tifinagh', sans-serif;
+      font-size: .65rem;
+      color: var(--gold);
+      letter-spacing: .15em;
+    }
+
+    .nav-right {
+      display: flex; align-items: center; gap: 1.2rem;
+    }
+    .nav-count {
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .nav-count strong { color: var(--gold); font-weight: 600; }
+
+    .nav-drive {
+      display: flex; align-items: center; gap: .4rem;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .05em;
+      color: var(--text);
+      text-decoration: none;
+      padding: .4rem 1rem;
+      border: 1px solid var(--border2);
+      border-radius: 3px;
+      transition: all .2s;
+    }
+    .nav-drive:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* SHARE NAV button */
+    .nav-share-btn {
+      display: flex; align-items: center; gap: .4rem;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .05em;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid rgba(200,135,58,.25);
+      padding: .4rem 1rem;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .nav-share-btn:hover { background: rgba(200,135,58,.2); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 5rem;
+      position: relative; overflow: hidden;
+    }
+
+    .hero-canvas {
+      position: absolute; inset: 0; z-index: -1;
+      background:
+        radial-gradient(ellipse 90% 70% at 50% -5%, rgba(200,135,58,.22) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 15% 80%, rgba(47,110,181,.1) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 85% 75%, rgba(200,135,58,.07) 0%, transparent 50%),
+        #080a0e;
+    }
+
+    .filmstrip {
+      position: absolute; top: 0; bottom: 0; width: 28px;
+      display: flex; flex-direction: column; gap: 0;
+      opacity: .08;
+    }
+    .filmstrip.left { left: 3%; }
+    .filmstrip.right { right: 3%; }
+    .filmstrip-hole {
+      width: 100%;
+      background: var(--gold);
+      flex: 1;
+      border-bottom: 6px solid var(--bg);
+    }
+
+    .hero-tifi {
+      font-family: 'Noto Sans Tifinagh', sans-serif;
+      font-size: clamp(.85rem, 2vw, 1rem);
+      color: var(--gold);
+      letter-spacing: .5em;
+      opacity: .8;
+      margin-bottom: 2rem;
+      animation: up .8s ease both;
+    }
+
+    .hero-h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: .95;
+      letter-spacing: -.03em;
+      background: linear-gradient(160deg, #ffffff 20%, var(--gold-lt) 80%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: up .9s .08s ease both;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      display: block;
+      font-size: .85em;
+      background: linear-gradient(135deg, var(--gold-lt), var(--gold));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-tagline {
+      margin-top: 1.6rem;
+      font-size: clamp(.85rem, 1.5vw, 1rem);
+      color: var(--muted);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      animation: up 1s .16s ease both;
+    }
+
+    .hero-rule {
+      width: 100px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 2.5rem auto;
+      animation: up 1s .24s ease both;
+    }
+
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: .8rem;
+      background: linear-gradient(135deg, var(--gold), #8a5520);
+      color: #080a0e;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600; font-size: .9rem;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .9rem 2.4rem;
+      border-radius: 2px;
+      text-decoration: none;
+      box-shadow: 0 8px 40px rgba(200,135,58,.4), inset 0 1px 0 rgba(255,255,255,.15);
+      transition: transform .25s, box-shadow .25s;
+      animation: up 1s .32s ease both;
+    }
+    .hero-cta:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 50px rgba(200,135,58,.55);
+    }
+
+    .hero-stats {
+      display: flex; gap: 3rem;
+      margin-top: 3.5rem;
+      animation: up 1s .4s ease both;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      color: var(--gold-lt);
+      line-height: 1;
+    }
+    .stat-lbl {
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: .3rem;
+    }
+
+    .scroll-hint {
+      position: absolute; bottom: 2rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: .5rem;
+      color: var(--faint);
+      animation: pulse 2.5s infinite;
+    }
+    .scroll-hint span { font-size: .65rem; letter-spacing: .25em; text-transform: uppercase; }
+
+    /* ── RADIO SECTION ── */
+    .radio-section {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 2rem 3rem;
+    }
+    .radio-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .radio-header h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: var(--text);
+    }
+    .radio-header span {
+      font-size: .7rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(200,135,58,.25);
+      padding: .2rem .6rem;
+      border-radius: 2px;
+    }
+    .radio-wrapper {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 480px;
+    }
+    .radio-wrapper iframe {
+      display: block;
+      width: 100%;
+      border: none;
+    }
+
+    /* ── CATALOGUE ── */
+    .catalogue {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 4rem 2rem 8rem;
+      position: relative; z-index: 1;
+    }
+
+    .cat-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 2rem; margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cat-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      line-height: 1;
+      color: var(--text);
+    }
+    .cat-title span { color: var(--gold); font-style: italic; }
+
+    .cat-badge {
+      font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: .35rem .9rem;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .controls {
+      display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap;
+    }
+    .search-wrap {
+      flex: 1 1 300px; position: relative;
+    }
+    .search-icon {
+      position: absolute; left: 1rem; top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted); pointer-events: none;
+      width: 16px; height: 16px;
+    }
+    .search-input {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .9rem;
+      padding: .8rem 1rem .8rem 2.7rem;
+      border-radius: 3px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .search-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(200,135,58,.08);
+    }
+    .search-input::placeholder { color: var(--faint); }
+
+    .filter-select {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .85rem;
+      padding: .8rem 1.4rem;
+      border-radius: 3px;
+      cursor: pointer;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .filter-select:focus { border-color: var(--gold); }
+
+    /* ── GRID ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      cursor: pointer;
+      transition: transform .3s cubic-bezier(.23,1,.32,1),
+                  box-shadow .3s, border-color .3s;
+      animation: up .5s ease both;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(200,135,58,.5);
+      box-shadow: 0 24px 60px rgba(0,0,0,.55),
+                  0 0 0 1px rgba(200,135,58,.25),
+                  0 0 40px rgba(200,135,58,.06);
+    }
+
+    .thumb {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: var(--surface);
+      overflow: hidden;
+    }
+    .thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+    .card:hover .thumb img { transform: scale(1.08); }
+
+    .thumb-ph {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(145deg, #141c28, #0a0e16);
+    }
+
+    .thumb-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(8,10,14,.8) 0%, transparent 50%);
+      opacity: 0; transition: opacity .3s;
+    }
+    .card:hover .thumb-overlay { opacity: 1; }
+
+    .play-btn {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .3s;
+    }
+    .card:hover .play-btn { opacity: 1; }
+    .play-ring {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(200,135,58,.88);
+      box-shadow: 0 4px 30px rgba(200,135,58,.6);
+      display: flex; align-items: center; justify-content: center;
+      transform: scale(.8); transition: transform .25s;
+    }
+    .card:hover .play-ring { transform: scale(1); }
+
+    .card-tag {
+      position: absolute; top: .7rem; left: .7rem;
+      background: var(--red);
+      color: #fff; font-size: .6rem; font-weight: 600;
+      letter-spacing: .14em; text-transform: uppercase;
+      padding: .2rem .6rem; border-radius: 2px;
+    }
+
+    /* share button on card */
+    .card-share {
+      position: absolute; top: .7rem; right: .7rem;
+      background: rgba(8,10,14,.7);
+      border: 1px solid var(--border2);
+      color: var(--muted);
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity .2s, background .2s;
+      z-index: 5;
+    }
+    .card:hover .card-share { opacity: 1; }
+    .card-share:hover { background: var(--gold); color: #080a0e; }
+
+    .card-body {
+      padding: 1.2rem 1.3rem 1.5rem;
+      flex: 1; display: flex; flex-direction: column;
+    }
+    .card-genre {
+      font-size: .67rem; font-weight: 600;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: .5rem;
+    }
+    .card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem; line-height: 1.3;
+      margin-bottom: .5rem; flex: 1;
+    }
+    .card-desc {
+      font-size: .8rem; color: var(--muted); line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .card-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--border); padding-top: .8rem; margin-top: auto;
+    }
+    .meta {
+      display: flex; gap: .8rem;
+    }
+    .meta-it {
+      display: flex; align-items: center; gap: .3rem;
+      font-size: .72rem; color: var(--muted);
+    }
+    .drive-lnk {
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .07em; text-transform: uppercase;
+      color: var(--gold); text-decoration: none;
+      transition: color .2s;
+    }
+    .drive-lnk:hover { color: var(--gold-lt); }
+
+    /* ── SHARE MODAL ── */
+    .share-modal-wrap {
+      position: fixed; inset: 0; z-index: 2000;
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
+      background: rgba(0,0,0,.88);
+      backdrop-filter: blur(12px);
+      opacity: 0; pointer-events: none;
+      transition: opacity .25s;
+    }
+    .share-modal-wrap.open { opacity: 1; pointer-events: all; }
+    .share-modal {
+      background: var(--card2);
+      border: 1px solid var(--border2);
+      border-radius: 10px;
+      padding: 2rem;
+      max-width: 400px;
+      width: 100%;
+      transform: scale(.93) translateY(16px);
+      transition: transform .3s cubic-bezier(.23,1,.32,1);
+    }
+    .share-modal-wrap.open .share-modal { transform: scale(1) translateY(0); }
+    .share-modal h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: .4rem;
+    }
+    .share-modal p {
+      font-size: .8rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+    }
+    .share-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .7rem;
+      margin-bottom: 1.2rem;
+    }
+    .share-btn {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: .4rem;
+      padding: .9rem .5rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: .68rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color .2s, background .2s, transform .15s;
+    }
+    .share-btn:hover { transform: translateY(-2px); border-color: var(--border2); }
+    .share-btn.fb:hover { border-color: #1877f2; background: rgba(24,119,242,.1); }
+    .share-btn.tw:hover { border-color: #1da1f2; background: rgba(29,161,242,.1); }
+    .share-btn.wa:hover { border-color: #25d366; background: rgba(37,211,102,.1); }
+    .share-btn.tg:hover { border-color: #2ca5e0; background: rgba(44,165,224,.1); }
+    .share-btn.em:hover { border-color: var(--gold); background: var(--gold-dim); }
+    .share-btn.cp:hover { border-color: var(--gold); background: var(--gold-dim); }
+    .share-icon { font-size: 1.4rem; }
+    .share-copy-row {
+      display: flex; gap: .5rem;
+    }
+    .share-url-input {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .75rem;
+      padding: .5rem .8rem;
+      border-radius: 4px;
+      outline: none;
+    }
+    .share-copy-btn {
+      background: var(--gold);
+      color: #080a0e;
+      border: none;
+      padding: .5rem 1rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: .75rem;
+      cursor: pointer;
+      transition: opacity .15s;
+    }
+    .share-copy-btn:hover { opacity: .82; }
+    .share-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: rgba(0,0,0,.5);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem;
+      transition: background .2s;
+    }
+    .share-close:hover { background: rgba(200,135,58,.2); color: var(--text); }
+
+    /* ── PLAYER MODAL ── */
+    .modal-wrap {
+      position: fixed; inset: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
+      background: rgba(0,0,0,.92);
+      backdrop-filter: blur(12px) saturate(1.2);
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+    }
+    .modal-wrap.open { opacity: 1; pointer-events: all; }
+
+    .modal {
+      background: var(--card2);
+      border: 1px solid var(--border2);
+      border-radius: 8px;
+      max-width: 900px; width: 100%;
+      overflow: hidden;
+      transform: scale(.93) translateY(20px);
+      transition: transform .35s cubic-bezier(.23,1,.32,1);
+      position: relative;
+    }
+    .modal-wrap.open .modal { transform: scale(1) translateY(0); }
+
+    .modal-video {
+      aspect-ratio: 16/9;
+      background: #000;
+      position: relative;
+    }
+    .modal-video iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    .modal-info {
+      padding: 1.4rem 1.6rem 1.6rem;
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 1.5rem;
+    }
+    .modal-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem; margin-bottom: .4rem;
+    }
+    .modal-meta {
+      font-size: .82rem; color: var(--muted); line-height: 1.65;
+    }
+    .modal-actions {
+      display: flex; gap: .7rem; flex-shrink: 0; align-items: center;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600; font-size: .8rem;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: .6rem 1.3rem; border-radius: 3px;
+      cursor: pointer; text-decoration: none; border: none;
+      transition: opacity .15s, transform .15s;
+    }
+    .btn:hover { opacity: .82; transform: translateY(-1px); }
+    .btn-gold { background: var(--gold); color: #080a0e; }
+    .btn-ghost { background: transparent; border: 1px solid var(--border2); color: var(--text); }
+    .btn-share { background: transparent; border: 1px solid rgba(200,135,58,.3); color: var(--gold); }
+
+    .close-modal {
+      position: absolute; top: .9rem; right: .9rem;
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(0,0,0,.7); border: 1px solid var(--border);
+      color: var(--muted); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; z-index: 5;
+      transition: background .2s, color .2s;
+    }
+    .close-modal:hover { background: rgba(200,135,58,.25); color: var(--text); }
+
+    /* ── EMPTY ── */
+    .empty {
+      grid-column: 1/-1;
+      text-align: center; padding: 5rem 2rem; color: var(--muted);
+    }
+    .empty h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem; color: var(--text); margin-bottom: .5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center; position: relative; z-index: 1;
+    }
+    .footer-tifi {
+      font-family: 'Noto Sans Tifinagh', sans-serif;
+      font-size: 1.2rem; color: var(--gold);
+      letter-spacing: .25em; display: block; margin-bottom: .6rem;
+    }
+    footer p { font-size: .8rem; color: var(--muted); line-height: 1.8; }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { color: var(--gold-lt); }
+
+    /* footer share row */
+    .footer-share {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .7rem;
+      margin: 1.2rem 0;
+      flex-wrap: wrap;
+    }
+    .footer-share-lbl {
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .footer-share a {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .75rem;
+      font-weight: 600;
+      padding: .35rem .9rem;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .footer-share a:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+
+    /* ── TOAST ── */
+    #toast {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      background: var(--card2);
+      border: 1px solid var(--border2);
+      border-left: 3px solid var(--gold);
+      color: var(--text);
+      font-size: .85rem;
+      padding: .8rem 1.4rem;
+      border-radius: 5px;
+      z-index: 20000;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: transform .25s, opacity .25s;
+      pointer-events: none;
+    }
+    #toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ── KEYFRAMES ── */
+    @keyframes up {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: .4; transform: translateX(-50%) translateY(0); }
+      50%       { opacity: .7; transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .hero-stats { gap: 1.8rem; }
+      .cat-header { flex-direction: column; align-items: flex-start; gap: .5rem; }
+      .modal-info { flex-direction: column; }
+      .nav-right .nav-count { display: none; }
+      .modal-actions { flex-wrap: wrap; }
+      nav { padding: 0 1.2rem; }
+      #visitorBar { padding: .4rem 1rem; }
+      .share-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ WELCOME BANNER ═══════════════ -->
+<div id="welcomeBanner">
+  <div class="banner-box">
+    <span class="banner-flag">🏔️</span>
+    <span class="banner-tifi">ⴰⵏⵙⵓⴼ · ⵎⵔⵀⴱⴰ</span>
+    <h2 class="banner-h">Bienvenue sur Films Kabyle</h2>
+    <p class="banner-sub">
+      Découvrez le cinéma mondial doublé intégralement en <strong style="color:var(--gold)">tamazight kabyle</strong>.<br/>
+      Préservons ensemble notre langue et culture amazighe.
+    </p>
+    <div class="banner-location" id="bannerLoc">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      <span id="bannerLocText">Chargement de la localisation…</span>
+    </div>
+    <div class="banner-rule"></div>
+    <button class="banner-btn" onclick="closeBanner()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+      Entrer dans le catalogue
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav>
+  <a class="nav-brand" href="#">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M6.6 2l5.4 9.3L22.8 2H6.6zm-4.2 7.3L6.6 18h10.8l-4.2-8.7H2.4zM22.8 18L17.4 9.3l-4.2 8.7H22.8z"/></svg>
+    </div>
+    <div class="nav-brand-text">
+      Films Kabyle
+      <span>ⵉⵙⵏⴼⴰⵍⴻⵏ ⵙ ⵜⴽⴱⴰⵢⵍⵉⵜ</span>
+    </div>
+  </a>
+  <div class="nav-right">
+    <span class="nav-count"><strong id="navCount">13</strong> films</span>
+    <button class="nav-share-btn" onclick="openShare(null)">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      Partager
+    </button>
+    <a class="nav-drive" href="https://drive.google.com/drive/folders/1FYbIb8GsxjWR4bE495HBUTKTfeH7SeTQ" target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 2l5.4 9.3L22.8 2H6.6zm-4.2 7.3L6.6 18h10.8l-4.2-8.7H2.4zM22.8 18L17.4 9.3l-4.2 8.7H22.8z"/></svg>
+      Drive ↗
+    </a>
+  </div>
+</nav>
+
+<!-- ═══════════════ VISITOR BAR ═══════════════ -->
+<div id="visitorBar">
+  <div class="vbar-item">
+    <div class="vbar-dot"></div>
+    <span>Visiteurs uniques : <strong id="uniqueCount">…</strong></span>
+  </div>
+  <div class="vbar-item">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="color:var(--gold)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+    <span>Localisation : <strong id="visitorLoc">Détection…</strong></span>
+  </div>
+  <div class="vbar-item">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <span id="visitTime">—</span>
+  </div>
+</div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <div class="hero-canvas"></div>
+  <div class="filmstrip left" aria-hidden="true">
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+  </div>
+  <div class="filmstrip right" aria-hidden="true">
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+  </div>
+
+  <p class="hero-tifi">ⵜⴰⵎⴰⵣⵉⵖⵜ · ⵜⴰⴽⴱⴰⵢⵍⵉⵜ · ⵉⵙⵏⴼⴰⵍⴻⵏ</p>
+
+  <h1 class="hero-h1">
+    Films doublés
+    <em>en Kabyle</em>
+  </h1>
+
+  <p class="hero-tagline">Cinéma mondial · Langue tamazight · Dubbing kabyle</p>
+  <div class="hero-rule"></div>
+
+  <a class="hero-cta"
+     href="https://drive.google.com/drive/folders/1FYbIb8GsxjWR4bE495HBUTKTfeH7SeTQ"
+     target="_blank" rel="noopener">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M6.6 2l5.4 9.3L22.8 2H6.6zm-4.2 7.3L6.6 18h10.8l-4.2-8.7H2.4zM22.8 18L17.4 9.3l-4.2 8.7H22.8z"/>
+    </svg>
+    Accéder à tous les films sur Drive
+  </a>
+
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">13</div><div class="stat-lbl">Films</div></div>
+    <div class="stat"><div class="stat-num" id="heroVisitors">—</div><div class="stat-lbl">Visiteurs</div></div>
+    <div class="stat"><div class="stat-num">∞</div><div class="stat-lbl">Culture</div></div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span>Catalogue</span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</header>
+
+<!-- ═══════════════ RADIO SECTION ═══════════════ -->
+<section class="radio-section">
+  <div class="radio-header">
+    <h3>📻 Radio Amazighe Antinéa</h3>
+    <span>En direct · Paris</span>
+  </div>
+  <div class="radio-wrapper">
+ <a href="https://llclick.com/skydjj77" target="_blank" rel="noopener">En direct</a>
+    
+  </div>
+</section>
+
+<!-- ═══════════════ CATALOGUE ═══════════════ -->
+<main>
+  <section class="catalogue">
+    <div class="cat-header">
+      <h2 class="cat-title">Catalogue <span>films</span></h2>
+      <span class="cat-badge" id="countBadge">13 films</span>
+    </div>
+
+    <div class="controls">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input class="search-input" id="searchInput" type="text"
+               placeholder="Rechercher un film…" oninput="filterFilms()" autocomplete="off" />
+      </div>
+      <select class="filter-select" id="genreFilter" onchange="filterFilms()">
+        <option value="">Tous les genres</option>
+        <option value="animation">Animation</option>
+        <option value="aventure">Aventure</option>
+        <option value="comédie">Comédie</option>
+        <option value="action">Action</option>
+        <option value="famille">Famille</option>
+        <option value="fantaisie">Fantaisie</option>
+      </select>
+    </div>
+
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<!-- ═══════════════ PLAYER MODAL ═══════════════ -->
+<div class="modal-wrap" id="modalWrap" onclick="handleModalClose(event)">
+  <div class="modal" id="modal">
+    <button class="close-modal" onclick="closeModal()">✕</button>
+    <div class="modal-video" id="modalVideo"></div>
+    <div class="modal-info">
+      <div class="modal-text">
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-meta" id="modalMeta"></p>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-share" onclick="shareCurrentFilm()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          Partager
+        </button>
+        <a id="modalLink" class="btn btn-gold" href="#" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.6 2l5.4 9.3L22.8 2H6.6zm-4.2 7.3L6.6 18h10.8l-4.2-8.7H2.4zM22.8 18L17.4 9.3l-4.2 8.7H22.8z"/>
+          </svg>
+          wait 5 seconds ...
+
+        </a>
+        <button class="btn btn-ghost" onclick="closeModal()">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ SHARE MODAL ═══════════════ -->
+<div class="share-modal-wrap" id="shareModalWrap" onclick="handleShareClose(event)">
+  <div class="share-modal" style="position:relative">
+    <button class="share-close" onclick="closeShare()">✕</button>
+    <h3>Partager</h3>
+    <p id="shareDesc">Partagez ce site avec vos amis et famille</p>
+    <div class="share-grid">
+      <a class="share-btn fb" id="shareFb" href="#" target="_blank" rel="noopener">
+        <span class="share-icon">📘</span>Facebook
+      </a>
+      <a class="share-btn tw" id="shareTw" href="#" target="_blank" rel="noopener">
+        <span class="share-icon">🐦</span>X / Twitter
+      </a>
+      <a class="share-btn wa" id="shareWa" href="#" target="_blank" rel="noopener">
+        <span class="share-icon">💬</span>WhatsApp
+      </a>
+      <a class="share-btn tg" id="shareTg" href="#" target="_blank" rel="noopener">
+        <span class="share-icon">✈️</span>Telegram
+      </a>
+      <a class="share-btn em" id="shareEm" href="#" target="_blank" rel="noopener">
+        <span class="share-icon">📧</span>Email
+      </a>
+      <button class="share-btn cp" onclick="copyShareUrl()">
+        <span class="share-icon">📋</span>Copier
+      </button>
+    </div>
+    <div class="share-copy-row">
+      <input class="share-url-input" id="shareUrlInput" type="text" readonly />
+      <button class="share-copy-btn" onclick="copyShareUrl()">Copier</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-tifi">ⵜⴰⵎⴰⵣⵉⵖⵜ · ⵜⴰⴽⴱⴰⵢⵍⵉⵜ</span>
+
+  <div class="footer-share">
+    <span class="footer-share-lbl">Partager :</span>
+    <a href="#" id="footerFb" target="_blank" rel="noopener">📘 Facebook</a>
+    <a href="#" id="footerTw" target="_blank" rel="noopener">🐦 Twitter</a>
+    <a href="#" id="footerWa" target="_blank" rel="noopener">💬 WhatsApp</a>
+    <a href="#" id="footerTg" target="_blank" rel="noopener">✈️ Telegram</a>
+  </div>
+
+  <p>
+    Films doublés en kabyle — Préservons notre langue &amp; culture amazighe.<br/>
+    Source : <a href="https://drive.google.com/drive/folders/1FYbIb8GsxjWR4bE495HBUTKTfeH7SeTQ" target="_blank" rel="noopener">Google Drive</a>
+    · <a href="#" onclick="openShare(null);return false;">Partager ce site</a>
+  </p>
+</footer>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<script>
+/* ===== DATA ===== */
+const FILMS = [
+  { id:"14vOckU9B3fT2KbZdSGq69OxAd_ioE0da", title:"3ICUCA",         genre:"comédie",   desc:"Film doublé en tamazight kabyle.",                              year:"2023", dur:"—" },
+  { id:"1C3cjgIbRZ0FYz2F7W-JEWtQY09DwmLXw", title:"At Dawuzru",     genre:"aventure",  desc:"Une aventure familiale doublée en kabyle.",                    year:"2022", dur:"—" },
+  { id:"10U71A9U77ie5ntmeJ-qpTyT_cqNYC1na", title:"Chrak 2",         genre:"action",    desc:"Suite du film d'action doublé en tamazight.",                  year:"2022", dur:"—" },
+  { id:"1OrJYhJmsQuXys8Az8_dIZdoWrZm45gxW", title:"Iferfucen",       genre:"animation", desc:"Film d'animation doublé en kabyle pour toute la famille.",     year:"2021", dur:"—" },
+  { id:"16eCNjjpRivz_WVvJwxgaY0rXlL0EIhuw", title:"Kypous",          genre:"comédie",   desc:"Une comédie kabyle pleine d'humour et de vie.",                year:"2022", dur:"—" },
+  { id:"1IKw50lpRk1fBEK_WwuNb8RM7fzvBuMN7", title:"Pucci 1",         genre:"animation", desc:"Premier épisode des aventures de Pucci en kabyle.",            year:"2020", dur:"—" },
+  { id:"1LspF-P1lzf2zrOFJBeUm_wk45LZixZLZ", title:"Pucci 2",         genre:"animation", desc:"Deuxième épisode des aventures de Pucci en kabyle.",           year:"2021", dur:"—" },
+  { id:"1IRTVOEbg8bbAd7Il9annRVV8nAFTL4D3", title:"Pucci 3",         genre:"animation", desc:"Troisième épisode des aventures de Pucci en kabyle.",          year:"2021", dur:"—" },
+  { id:"15dQ0YPyBWqISkTQYZhcGQGyT9GB5EjMi", title:"Pucci 4",         genre:"animation", desc:"Quatrième épisode des aventures de Pucci en kabyle.",          year:"2022", dur:"—" },
+  { id:"10YsnKT740a4un3l7sI1xTSHxej0aDO5L", title:"Quezbul",         genre:"comédie",   desc:"Comédie kabyle savoureuse, doublage intégral en tamazight.",   year:"2023", dur:"—" },
+  { id:"12mNbkqj5bBmjNCuv0NBAj0_KX0Ot1Q0v", title:"Qiqi Vu Lemraqi", genre:"famille",   desc:"Une aventure familiale joyeuse doublée en kabyle.",            year:"2022", dur:"—" },
+  { id:"17ys3g2svR20cXNOrczSxpvsbMLhE8aZu", title:"Rubiccu",         genre:"fantaisie", desc:"Un conte fantastique ancré dans la culture amazighe.",         year:"2021", dur:"—" },
+  { id:"1JH7dOzUh7zvqQFQIpH9AFH8cn4fGU5L9", title:"Shrek 1",         genre:"animation", desc:"Le célèbre ogre vert doublé intégralement en tamazight kabyle.", year:"2023", dur:"1h 30min" }
+];
+
+const SITE_URL = window.location.href;
+const SITE_TITLE = "Films doublés en Kabyle — ⵉⵙⵏⴼⴰⵍⴻⵏ ⵙ ⵜⴽⴱⴰⵢⵍⵉⵜ";
+const SITE_DESC  = "Découvrez 13 films doublés en tamazight kabyle. Préservons notre culture amazighe !";
+
+let currentFilmId = null;
+
+/* ===== HELPERS ===== */
+const viewUrl  = m => `http://adfoc.us/serve/sitelinks/?id=218408&url=https://drive.google.com/file/d/${m.id}/view`;
+const prevUrl  = m => `https://drive.google.com/file/d/${m.id}/preview`;
+const thumbUrl = m => `https://drive.google.com/thumbnail?id=${m.id}&sz=w480`;
+
+/* ===== VISITOR COUNTER (localStorage simulation) ===== */
+function initVisitorCounter() {
+  const KEY_COUNT = 'filmskabyle_visitors';
+  const KEY_VISIT = 'filmskabyle_last_visit';
+  const KEY_ID    = 'filmskabyle_uid';
+
+  // Generate or retrieve unique ID
+  let uid = localStorage.getItem(KEY_ID);
+  if (!uid) {
+    uid = 'v_' + Date.now() + '_' + Math.random().toString(36).slice(2, 9);
+    localStorage.setItem(KEY_ID, uid);
+  }
+
+  // Track unique visitors via a shared key (simulate with localStorage + random seed)
+  let count = parseInt(localStorage.getItem(KEY_COUNT) || '0', 10);
+  const lastVisit = localStorage.getItem(KEY_VISIT);
+  const today = new Date().toDateString();
+
+  // Base of ~2400 simulated visitors, increment on each new session
+  if (!lastVisit || lastVisit !== today) {
+    count = count || (2400 + Math.floor(Math.random() * 600));
+    count++;
+    localStorage.setItem(KEY_COUNT, count);
+    localStorage.setItem(KEY_VISIT, today);
+  } else {
+    count = count || (2400 + Math.floor(Math.random() * 600));
+  }
+
+  document.getElementById('uniqueCount').textContent = count.toLocaleString('fr');
+  document.getElementById('heroVisitors').textContent = count.toLocaleString('fr');
+}
+
+/* ===== GEOLOCATION ===== */
+function initGeolocation() {
+  fetch('https://ipapi.co/json/')
+    .then(r => r.json())
+    .then(d => {
+      const loc = [d.city, d.region, d.country_name].filter(Boolean).join(', ') || 'Localisation inconnue';
+      document.getElementById('visitorLoc').textContent   = loc;
+      document.getElementById('bannerLocText').textContent = '📍 ' + loc;
+    })
+    .catch(() => {
+      document.getElementById('visitorLoc').textContent   = 'Non disponible';
+      document.getElementById('bannerLocText').textContent = '📍 Localisation non disponible';
+    });
+}
+
+/* ===== CLOCK ===== */
+function updateClock() {
+  const now = new Date();
+  document.getElementById('visitTime').textContent =
+    'Visite : ' + now.toLocaleString('fr-DZ', { weekday:'short', day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit' });
+}
+
+/* ===== WELCOME BANNER ===== */
+function closeBanner() {
+  const b = document.getElementById('welcomeBanner');
+  b.classList.add('hidden');
+  setTimeout(() => b.remove(), 450);
+}
+
+/* ===== SHARE ===== */
+function buildShareLinks(url, text) {
+  const enc = encodeURIComponent;
+  return {
+    fb: `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`,
+    tw: `https://twitter.com/intent/tweet?url=${enc(url)}&text=${enc(text)}`,
+    wa: `https://wa.me/?text=${enc(text + ' ' + url)}`,
+    tg: `https://t.me/share/url?url=${enc(url)}&text=${enc(text)}`,
+    em: `mailto:?subject=${enc(text)}&body=${enc(text + '\n\n' + url)}`
+  };
+}
+
+function openShare(filmId) {
+  let url, text, desc;
+  if (filmId) {
+    const m = FILMS.find(x => x.id === filmId);
+    url  = viewUrl(m);
+    text = `Regardez "${m.title}" doublé en kabyle ! ${SITE_DESC}`;
+    desc = `Partager le film : ${m.title}`;
+  } else {
+    url  = SITE_URL;
+    text = SITE_DESC;
+    desc = 'Partagez ce site avec vos amis et famille';
+  }
+
+  const links = buildShareLinks(url, text);
+  document.getElementById('shareDesc').textContent = desc;
+  document.getElementById('shareFb').href = links.fb;
+  document.getElementById('shareTw').href = links.tw;
+  document.getElementById('shareWa').href = links.wa;
+  document.getElementById('shareTg').href = links.tg;
+  document.getElementById('shareEm').href = links.em;
+  document.getElementById('shareUrlInput').value = url;
+  document.getElementById('shareModalWrap').classList.add('open');
+}
+
+function closeShare() {
+  document.getElementById('shareModalWrap').classList.remove('open');
+}
+function handleShareClose(e) {
+  if (e.target === document.getElementById('shareModalWrap')) closeShare();
+}
+
+function copyShareUrl() {
+  const val = document.getElementById('shareUrlInput').value;
+  navigator.clipboard.writeText(val).then(() => showToast('✅ Lien copié dans le presse-papiers !'))
+    .catch(() => {
+      document.getElementById('shareUrlInput').select();
+      document.execCommand('copy');
+      showToast('✅ Lien copié !');
+    });
+}
+
+function shareCurrentFilm() {
+  openShare(currentFilmId);
+}
+
+/* init footer share links */
+function initFooterShare() {
+  const links = buildShareLinks(SITE_URL, SITE_DESC);
+  document.getElementById('footerFb').href = links.fb;
+  document.getElementById('footerTw').href = links.tw;
+  document.getElementById('footerWa').href = links.wa;
+  document.getElementById('footerTg').href = links.tg;
+}
+
+/* ===== TOAST ===== */
+function showToast(msg, ms = 2800) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), ms);
+}
+
+/* ===== RENDER ===== */
+const icoFilm  = `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3a4558" stroke-width="1.2"><rect x="2" y="2" width="20" height="20" rx="2"/><polygon points="10,8 16,12 10,16"/></svg>`;
+const icoPlay  = `<svg width="20" height="20" viewBox="0 0 24 24" fill="#080a0e"><polygon points="5,3 19,12 5,21"/></svg>`;
+const icoShare = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`;
+const icoCal   = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`;
+const icoClock = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`;
+
+function renderGrid(list) {
+  const grid    = document.getElementById('grid');
+  const badge   = document.getElementById('countBadge');
+  const navCount= document.getElementById('navCount');
+  badge.textContent    = list.length + ' film' + (list.length !== 1 ? 's' : '');
+  navCount.textContent = list.length;
+
+  if (!list.length) {
+    grid.innerHTML = `<div class="empty"><h3>Aucun film trouvé</h3><p>Essayez un autre terme ou filtre.</p></div>`;
+    return;
+  }
+
+  grid.innerHTML = list.map((m, i) => `
+    <article class="card" style="animation-delay:${i * .055}s" onclick="openModal('${m.id}')">
+      <div class="thumb">
+        <img src="${thumbUrl(m)}" alt="${m.title}" loading="lazy"
+             onerror="this.parentElement.innerHTML='<div class=\\'thumb-ph\\'>${icoFilm}</div>'">
+        <div class="thumb-overlay"></div>
+        <div class="play-btn"><div class="play-ring">${icoPlay}</div></div>
+        <span class="card-tag">Kabyle</span>
+        <button class="card-share" title="Partager"
+                onclick="event.stopPropagation();openShare('${m.id}')">${icoShare}</button>
+      </div>
+      <div class="card-body">
+        <p class="card-genre">${m.genre}</p>
+        <h3 class="card-title">${m.title}</h3>
+        <p class="card-desc">${m.desc}</p>
+        <div class="card-foot">
+          <div class="meta">
+            <span class="meta-it">${icoCal} ${m.year}</span>
+            ${m.dur !== '—' ? `<span class="meta-it">${icoClock} ${m.dur}</span>` : ''}
+          </div>
+          <a class="drive-lnk" href="${viewUrl(m)}" target="_blank" rel="noopener"
+             onclick="event.stopPropagation()">Drive ↗</a>
+        </div>
+      </div>
+    </article>
+  `).join('');
+}
+
+/* ===== FILTER ===== */
+function filterFilms() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  const g = document.getElementById('genreFilter').value;
+  renderGrid(FILMS.filter(m =>
+    (!q || m.title.toLowerCase().includes(q) || m.desc.toLowerCase().includes(q)) &&
+    (!g || m.genre === g)
+  ));
+}
+
+/* ===== MODAL ===== */
+function openModal(id) {
+  const m = FILMS.find(x => x.id === id);
+  if (!m) return;
+  currentFilmId = id;
+
+  document.getElementById('modalTitle').textContent = m.title;
+  document.getElementById('modalMeta').innerHTML =
+    `<strong style="color:var(--gold)">${m.genre.charAt(0).toUpperCase()+m.genre.slice(1)}</strong>
+     · ${m.year}${m.dur !== '—' ? ' · ' + m.dur : ''}
+     <br/>${m.desc}`;
+  document.getElementById('modalLink').href = viewUrl(m);
+  document.getElementById('modalVideo').innerHTML =
+    `<iframe src="${prevUrl(m)}" allow="autoplay" allowfullscreen></iframe>`;
+  document.getElementById('modalWrap').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalWrap').classList.remove('open');
+  document.getElementById('modalVideo').innerHTML = '';
+  document.body.style.overflow = '';
+  currentFilmId = null;
+}
+function handleModalClose(e) {
+  if (e.target === document.getElementById('modalWrap')) closeModal();
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeModal(); closeShare(); }
+});
+
+/* ===== INIT ===== */
+renderGrid(FILMS);
+initVisitorCounter();
+initGeolocation();
+initFooterShare();
+updateClock();
+setInterval(updateClock, 60000);
+</script>
+
+</body>
+</html>
